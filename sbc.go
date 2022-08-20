@@ -57,7 +57,7 @@ func (sbc *SerialBridgeClient) connect(ctx context.Context, reconnectChan chan<-
 	obis := NewDecoder(sbc.conn)
 	go func() {
 		for {
-			err = sbc.conn.SetReadDeadline(time.Now().Add(15 * time.Second))
+			err = sbc.conn.SetReadDeadline(time.Now().Add(25 * time.Second))
 			if err != nil {
 				log.Printf("SetReadDeadline failed with error: %v (addr: %s)", err, sbc.addr)
 			}
